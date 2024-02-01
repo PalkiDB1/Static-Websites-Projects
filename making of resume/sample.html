@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal:Portfolio Website</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="color-css.css">
+    <link rel="stylesheet" href="section.css">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Switcher -->
+    <link rel="stylesheet" href="color-1.css" class="alternate-style" title="color-1" disabled>
+    <link rel="stylesheet" href="color-2.css" class="alternate-style" title="color-2" disabled>
+    <link rel="stylesheet" href="color-3.css" class="alternate-style" title="color-3" disabled>
+    <link rel="stylesheet" href="color-4.css" class="alternate-style" title="color-4" disabled>
+    <link rel="stylesheet" href="color-5.css" class="alternate-style" title="color-5" disabled>
+    <link rel="stylesheet" href="style-switcher.css">
+    <style>
+        /* importing google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:wght@700&family=Bebas+Neue&family=Clicker+Script&family=Neonderthaw&family=Nunito+Sans&family=Oswald:wght@600&family=Pacifico&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:wght@700&family=Bebas+Neue&family=Clicker+Script&family=Neonderthaw&family=Nunito+Sans&family=Oswald:wght@600&family=Pacifico&family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,500;1,700&family=Roboto&display=swap');
+
+/* Creating css global variables for using multiple times in the code */
+:root{
+    --bg-black-900:#f2f2fc;
+    --bg-black-100:#fdf9ff;
+    --bg-black-50:#eBdfec;
+    --text-black-900:#302e4d;
+    --text-black-700:#504e70;
+}
+body.dark{
+    --bg-black-900:#151515;
+    --bg-black-100:#222222;
+    --bg-black-50:#393939;
+    --text-black-900:#ffffff;
+    --text-black-700:#e9e9e9;
+}
+
+.padd-15{
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+.shadow{
+    box-shadow: 0 0 20px rgba(48,46,77,0.25);
+
+}
+body{
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+*{
+    margin: 0;
+    padding: 0;
+    outline: none; 
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.6; 
+    box-sizing: border-box;
+}
+::before,::after{
+
+    box-sizing: border-box;
+}
+/* section */
+.section{
+     background: var(--bg-black-900); 
+    min-height: 100vh;
+    display: block;
+    top:0;
+    right:0;
+    z-index: 0;
+}
+.main-content{
+    padding-left: 300px;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0px;
+    margin-right: 0px;
+    position: relative;
+}
+
+/* aside */
+ul{
+    list-style: none;
+}
+.aside{
+    width:300px;
+    /* position: fixed; */
+    background: var(--bg-black-100);
+    position: fixed;
+    padding:40px;
+    border-right: 1px solid var(--bg-black-50);
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    left:0;
+    top:0;
+    z-index:10;
+}
+.aside .logo{
+    position: absolute;
+    font-weight: bolder;
+    top:30px;
+    font-size:20px;
+    text-transform: uppercase;
+}
+.aside .logo a{
+    color: var(--text-black-900);
+    font-weight: bolder;
+    padding:15px 30px;
+    font-size: 30px;
+    letter-spacing: 5px;
+    position: relative;
+}
+.aside .logo a span{
+    font-family: 'Clicker Script', cursive;
+    font-size: 38px;
+}
+.aside .logo a::before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    border-bottom:5px solid var(--skin-color);
+    border-left:  5px   solid var(--skin-color);
+    bottom: 0;
+    left: 0;
+}
+.aside .logo a::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    border-top:5px solid var(--skin-color);
+    border-right:5px solid var(--skin-color);
+    top: 0;
+    right: 0;
+}
+.aside .nav-toggler{
+    height: 40px;
+
+    width: 45px;
+    border:1px solid var(--bg-black-50);
+    cursor: pointer;
+    position: fixed;
+    left:350px;
+    top:20px;
+    border-radius: 5px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-black-100);
+
+}
+.aside .nav-toggler span{
+    height: 2px;
+    position: relative;
+    width:18px;
+    background: var(--skin-color);
+    display: inline-block;
+}
+.aside .nav-toggler span::before{
+    content: "";
+    height: 2px;
+    width:18px;
+    background: var(--skin-color);
+    position: absolute;
+    top:-6px;
+    left:0px;
+
+}
+.aside .nav-toggler span::after{
+    content: "";
+    height: 2px;
+    width:18px;
+    background: var(--skin-color);
+    position: absolute;
+    top:6px;
+    left:0px;
+
+}
+.aside .nav{
+    margin-top: 50px;
+}
+
+.aside .nav li{
+    margin-bottom: 20px;
+    display: block;
+}
+
+.aside .nav li a{
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    border-bottom: 1px solid var(--bg-black-50);
+    color: var(--text-black-900);
+    padding: 5px 15px;
+}
+
+.aside .nav li a.active{
+    color: var(--skin-color);
+}
+.aside .nav li a i{
+    margin-right: 10px;
+}
+/* Button */
+.btn{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 35px;
+    color: white;
+    border-radius: 40px;
+    display: inline-block;
+    white-space: nowrap;
+    background: var(--skin-color);
+    transition: all 0.3s ease;
+}
+.btn:hover{
+    transform: scale(1.05);
+}
+/*Home */
+.home{
+    
+    min-height: 100vh;
+    display: flex;
+    color: var-(--bg-black-900);
+}
+.home .home-info{
+    flex:0 0 55%;
+    max-width: 55%;
+}
+h3.hello{
+    font-size: 28px;
+    margin: 15px 0px;
+}
+h3.hello span{
+    font-family: 'Clicker Script', cursive;
+    font-size: 35px;
+    font-weight: 900;
+    color: var(--skin-color);
+}
+.home .home-img{
+    flex: 0 0 45%;
+    max-width: 45%;
+    text-align: center;
+    position: relative;
+}
+.home-img{
+    height: 400px;
+}
+h3.profession{
+    font-size: 30px;
+    margin: 15px 0px;
+}
+.typing{
+    font-size: 30px;
+    color:var(--skin-color)
+}
+.home-info p{
+    margin-bottom: 70px;
+    font-size: 20px;
+    color:var(--text-black-700)
+}
+.home-img::after{
+    content: '';
+    position: absolute;
+    height: 80px;
+    width:88px;
+    border-bottom: 10px solid var(--skin-color);
+    border-right: 10px solid var(--skin-color);
+    right:28px;
+    bottom: -40px;
+
+}
+.home-img::before{
+    content: '';
+    position: absolute;
+    height: 80px;
+    width:88px;
+    border-top: 10px solid var(--skin-color);
+    border-left: 10px solid var(--skin-color);
+    left:-28px;
+    top: -40px;
+
+}
+.home .home-img img{
+    margin: auto;
+    border-radius: 10px;
+    height: 400px;
+}
+/* About */
+
+.container{
+    max-width: 1200px;
+    width: 100%;
+    background: var(--bg-black-900);
+    margin: auto;
+}
+section .container{
+    padding-top: 60px;
+    padding-bottom: 70px;
+}
+section .title{
+    flex:0 0 100%;
+    max-width: 100%;
+}
+.about-title{
+    flex:0 0 100%;
+    max-width: 100%;
+    padding-bottom: 60px;
+    /* background: red; */
+}
+.about-title h2{
+    font-size: 40px;
+    color: var(--text-black-900);
+    position: relative;
+    font-weight: 800;
+
+}
+.about-title h2::before{
+    content:" ";
+    height: 4px;
+    width:50px;
+    background-color: var(--skin-color);
+    position: absolute;
+    top: 100%;
+    left:0;
+}
+.about-title h2::after{
+    content:" ";
+    height: 4px;
+    width:25px;
+    background-color: var(--skin-color);
+    position: absolute;
+    top: 100%;
+    left:0;
+    margin-top: 8px;
+}
+
+.about .about-content{
+    flex:0 0 100%;
+    max-width: 100%;
+    /* background-color: red; */
+}
+.about .about-content .about-text{
+    flex:0 0 100%;
+    max-width: 100%;
+    /* background-color: red; */
+}
+.about .about-content .about-text h3{
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--text-black-900);
+}
+.about .about-content .about-text h3 span{
+    font-size: 24px;
+    color:var(--skin-color);
+}
+.about .about-content .about-text p{
+    font-size: 16px;
+    line-height: 25px;
+    color: var(--text-black-700);
+}
+.about .about-content .personal-info{
+    flex:0 0 60%;
+    max-width: 60%;
+    /* background-color: red; */
+    margin-top: 40px;
+}
+.about .about-content .skills{
+    flex: 0 0 40%;
+    max-width: 40%;
+    /* background-color: green; */
+    margin-top: 40px;
+}
+.about .about-content .personal-info .info-item{
+    flex:0 0 50%;
+    max-width: 50%;
+    /* background-color: red; */
+}
+.about .about-content .personal-info .info-item p{
+    font-weight: 700;
+    padding: 10px 0;
+    font-size: 16px;
+    color:var(--text-black-900);
+    border-bottom:1px solid var(--bg-black-50);
+}
+.about .about-content .personal-info .info-item p span{
+    font-weight: 400px;
+    margin-left: 5px;
+    display: inline-block;
+    color: var(--text-black-700);
+
+}
+.about .about-content .personal-info .buttons{
+    margin-top: 40px;
+    margin-right: 15px;
+}
+.about .about-content .personal-info .buttons .btn{
+    margin-right: 10px;
+}
+.about .about-content .skills .skill-item{
+    flex: 0 0 100%;
+    max-width: 100%;
+    /* background-color: red; */
+}
+.about .about-content .skills .skill-item h5{
+    line-height: 40px;
+    text-transform: uppercase;
+    color: var(--text-black-900);
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.about .about-content .skills .skill-item .progress{
+    background-color: var(--bg-black-50);
+    height: 7px;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.about .about-content .skills .skill-item .progress .progress-in{
+    background-color: var(--skin-color);
+    border-radius: 5px;
+    position: absolute;
+    height: 7px;
+} 
+.about .about-content .skills .skill-item .progress .progress-in .skill-percent{
+    position: absolute;
+    right: 0;
+    top: -20px;
+    font-weight: 600;
+}
+.about .about-content .education,.about .about-content .experince{
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 30px;
+    /* background-color: #f3baba; */
+}
+.about .about-content h3.title{
+    font-weight: 800;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: var(--text-black-700);
+}
+.about .about-content .timeline-box{
+    flex:0 0 100%;
+    max-width: 100%;
+    /* background-color: red; */
+}
+.about .about-content .timeline-box{
+    flex: 0 0 100%;
+    max-width: 100%;
+    /* background-color: red; */
+}
+.about .about-content .timeline{
+    background-color: var(--bg-black-100);
+    padding: 30px 15px;
+    border: 1px solid var(--bg-black-50);
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+}
+.about .about-content .timeline .timeline-item{
+    position: relative;
+    padding-left: 37px;
+    padding-bottom: 50px;
+}
+.about .about-content .timeline .timeline-item:last-child{
+    padding-bottom: 0;
+}
+.about .about-content .timeline .timeline-item::before{
+    content:'';
+    width: 4px;
+    position: absolute;
+    height: 100%;
+    top:0;
+    left:7px;
+    /* border-radius: 5px; */
+    background-color: var(--skin-color); 
+}
+.about .about-content .timeline .circle-dot{
+    position: absolute;
+    left:0;
+    top:0;
+    height: 19px;
+    width: 19px;
+    border-radius: 50%;
+    background-color: var(--skin-color);
+}
+.about .about-content .timeline .timeline-date{
+    font-weight: 400;
+    
+    font-size: 17px;
+    /* margin: 12px; */
+    color:var(--text-black-700);
+}
+.about .about-content .timeline .timeline-date .fa{
+    margin-right: 5px;
+}
+.about .about-content .timeline .timeline-title{
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color:var(--text-black-900)  
+}
+.about .about-content .timeline .text{
+    line-height: 25px;
+    text-align: justify;
+    font-size: 15px;
+    color: var(--text-black-700);
+}
+
+@media (max-width:1300px){
+    .aside{
+        left:-300px;
+    }
+    .main-content{
+        padding-left: 0;
+    }
+    .about .about-content .personal-info .info-item p span{
+        display: block;
+        margin-left: 0;
+    }
+}
+@media (max-width:1040px)
+{
+    .about .about-content .education{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .about .about-content .experince{
+        flex:0 0 100%;
+        max-width: 100%;
+    }
+
+    .home .home-info{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .home .home-img{
+        display: none;
+    }
+}
+@media (max-width:800px){
+    .about .about-content .skills,
+    .about .about-content .personal-info{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+    </style>
+</head>
+<body class="dark">
+    <!-- main container starts-->
+    <div class="main-container">
+        <!-- aside starts -->
+        <div class="aside">
+            <div class="logo">
+                <a href="#"><span>P</span>alki</a>
+            </div>
+            <div class="nav-toggler">
+                <span></span>
+            </div>
+            <ul class="nav">
+                <li><a href="#home" class="active"><i class="fa fa-home"></i></i>Home</a></li>
+                <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
+                <li><a href="#services"><i class="fa fa-list"></i>Services</a></li>
+                <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a></li>
+                <li><a href="#contact"><i class="fa fa-phone"></i></i>Contact</a></li>
+            </ul>
+        </div>
+        <!-- aside ends -->
+        <!-- main-content starts -->
+        <div class="main-content">
+            <!-- home section starts -->
+            <section class="home section hidden" id="home">
+                <div class="container">
+                    <div class="row">
+                        <div class="home-info padd-15">
+                            <h3 class="hello">Hello,My Name is <span class="name">Palki Devi</span></h3>
+                            <h3 class="profession">I am a Professional <span class="typing">Full Stack Developer</span></h3>
+                            <p>This is my first web development project.This project uses Html,CSS,JavaScript and Serveral links to sites</p>
+                            <a href="#contact" class="btn hire-me">Hire Me</a>
+                        </div>
+                        <div class="home-img padd-15">
+                            <img src="/Projects/img/palki.png" alt="This is an image" height="300px">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Home section ends -->
+            <!-- About section Starts -->
+            <section class="about" id="about">
+                <div class="container">
+                    <div class="row padd-15">
+                        <div class="about-title padd-15">
+                            <h2>About Me</h2>
+                        </div>
+                    </div>
+                    <div class="row padd-15">
+                        <div class="about-content padd-15">
+                            <div class="row">
+                                <div class="about-text">
+                                    <h3>I am Palki Devi <span>Web Developer</span></h3>
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur rem maxime quaerat ratione saepe quos, nulla dolorem laborum. Consectetur numquam eius fugiat veniam molestias possimus quisquam debitis voluptas, maxime sequi ad omnis consequatur magni modi, ab doloribus quae iste error, optio eum quasi. Iusto, voluptate iste? Consequatur reiciendis ea voluptatum reprehenderit error qui? At fugit ipsa excepturi, aut praesentium tenetur? Illum magnam soluta recusandae, dolor.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="personal-info">
+                                    <div class="row">
+                                        <div class="info-item">
+                                            <p>Birthday : <span>23 Jan 2002</span></p>
+                                        </div>
+                                        <div class="info-item">
+                                            <p>Age: <span>20</span></p>
+                                        </div>
+                                        <div class="info-item">
+                                            <p>Website: <span>www.domain.com</span></p>
+                                        </div>
+                                        <div class="info-item">
+                                            <p>Emai: <span>padbh21cs@cmrit.ac.in</span></p>
+                                        </div>
+                                        <div class="info-item">
+                                            <p>Degree: <span>Btech 2nd Year</span></p>
+                                        </div>
+                                        <div class="info-item">
+                                            <p>Phone No: <span>62XXXX00</span></p>
+                                        </div>
+                                        <div class="info-item">
+                                            <p>City: <span>Bengaluru</span></p>
+                                        </div>
+                                        <div class="info-item">
+                                            <p>HomeTown: <span>Guhwati,Assam</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="buttons padd-15">
+                                            <a href="#" class="btn">Download CV</a>
+                                            <a href="#" class="btn hire-me">Hire me</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skills padd-15">
+                                    <div class="row">
+                                        <div class="skill-item padd-15">
+                                            <h5>CSS</h5>
+                                            <div class="progress" >
+                                                <div class="progress-in" style="width:76%">
+                                                    <div class="skill-percent">76%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>Html</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 90%">
+                                                    <div class="skill-percent">90%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>JavaScript</h5>
+                                            <div class="progress" >
+                                                <div class="progress-in" style="width: 40%">
+                                                    <div class="skill-percent">40%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>BootStrap</h5>
+                                            <div class="progress" >
+                                                <div class="progress-in" style="width:30%">
+                                                    <div class="skill-percent">30%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>React.Js</h5>
+                                            <div class="progress" >
+                                                <div class="progress-in"
+                                                style="width:40%">
+                                                    <div class="skill-percent">40%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="education padd-15">
+                                    <h3 class="title">Education</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow">
+                                                <!-- timeline item -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2022-2023
+                                                    </h3>
+                                                    <h4 class="timeline-title">Master in computer science</h4>
+                                                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aliquam quidem vitae commodi veniam molestias, reprehenderit veritatis! Nam explicabo tempora deserunt tempore architecto, reiciendis vitae, ut saepe, nisi quam voluptatibus?</p>
+                                                </div>
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2022-2023
+                                                    </h3>
+                                                    <h4 class="timeline-title">Master in computer science</h4>
+                                                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aliquam quidem vitae commodi veniam molestias, reprehenderit veritatis! Nam explicabo tempora deserunt tempore architecto, reiciendis vitae, ut saepe, nisi quam voluptatibus?</p>
+                                                </div>
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2022-2023
+                                                    </h3>
+                                                    <h4 class="timeline-title">Master in computer science</h4>
+                                                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aliquam quidem vitae commodi veniam molestias, reprehenderit veritatis! Nam explicabo tempora deserunt tempore architecto, reiciendis vitae, ut saepe, nisi quam voluptatibus?</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experince padd-15">
+                                    <h3 class="title">Experince</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow">
+                                                <!-- timeline item -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2022-2023
+                                                    </h3>
+                                                    <h4 class="timeline-title">Master in computer science</h4>
+                                                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aliquam quidem vitae commodi veniam molestias, reprehenderit veritatis! Nam explicabo tempora deserunt tempore architecto, reiciendis vitae, ut saepe, nisi quam voluptatibus?</p>
+                                                </div>
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2022-2023
+                                                    </h3>
+                                                    <h4 class="timeline-title">Master in computer science</h4>
+                                                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aliquam quidem vitae commodi veniam molestias, reprehenderit veritatis! Nam explicabo tempora deserunt tempore architecto, reiciendis vitae, ut saepe, nisi quam voluptatibus?</p>
+                                                </div>
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2022-2023
+                                                    </h3>
+                                                    <h4 class="timeline-title">Master in computer science</h4>
+                                                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aliquam quidem vitae commodi veniam molestias, reprehenderit veritatis! Nam explicabo tempora deserunt tempore architecto, reiciendis vitae, ut saepe, nisi quam voluptatibus?</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- aboout section ends -->
+            <!-- Services section starts -->
+            <section class="services section" id="services">
+                <div class="container padd-15">
+                    <div class="row">
+                        <div class="section-title">
+                            <h2>Services</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Services-item starts -->
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="item">
+                                    <i class="fa fa-mobile-alt"></i>
+                                </div>
+                                <h4>Web Design</h4>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                            </div>
+                        </div>
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="item">
+                                    <i class="fa fa-laptop-code"></i>
+                                </div>
+                                <h4>Web Design</h4>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="item">
+                                    <i class="fa fa-palette"></i>
+                                </div>
+                                <h4>Web Design</h4>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="item">
+                                    <i class="fa fa-code"></i>
+                                </div>
+                                <h4>Web Design</h4>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="item">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                                <h4>Web Design</h4>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="item">
+                                    <i class="fa fa-bullhorn"></i>
+                                </div>
+                                <h4>Web Design</h4>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Services section ends -->
+            <!-- portfolio section starts -->
+            <section class="portfolio section" id="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>Portfolio</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="portfolio-heading padd-15">
+                            <h2><i>My Last Projects</i></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- portfolio itemss starts -->
+                        <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner shadow">
+                                <div class="potfolio-img">
+                                    <img src="/Projects/img/img2/imgage1.jpg" alt="This is an image 1" height="300" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner shadow">
+                                <div class="potfolio-img">
+                                    <img src="/Projects/img/img2/IMAGE 2.jpg" alt="This is an image 2" height="300" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner shadow">
+                                <div class="potfolio-img">
+                                    <img src="/Projects/img/img2/image 3.jpg" alt="This is an image 3" height="300" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner shadow">
+                                <div class="potfolio-img">  
+                                    <img src="/Projects/img/img2/IMAGE4.jpg" alt="This is an image 4" height="300" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner shadow">
+                                <div class="potfolio-img">
+                                    <img src="/Projects/img/img2/image 5.jpg" alt="This is an img 5"height="300" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner shadow">
+                                <div class="potfolio-img">
+                                    <img src="/Projects/img/img2/IMAGE 2.jpg" alt="This is an img 6"height="300" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- portfolio section ends -->
+            <!-- Contact section starts -->
+            <section class="contact section" id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>Contact Me</h2>
+                        </div>
+                    </div>
+                    <div class="row padd-15">
+                        <div class="contact-title">
+                            Have You Any Queries?
+                        </div>
+                        <div class="contact-sub-title">
+                            <h4>I'M AT YOUR SERVICE</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Contact info starts -->
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-phone"></i></div>
+                            <h4>Call On Us</h4>
+                            <p>+91 620XXXX876</p>
+                        </div>
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-marker"></i></div>
+                            <h4>Office</h4>
+                            <p>Assam.Guhwathi</p>
+                        </div>
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-envelope"></i></div>
+                            <h4>Email</h4>
+                            <p>padba21cs@cmrit.ac.in</p>
+                        </div>
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-globe-europe"></i></div>
+                            <h4>Website</h4>
+                            <p>www.palki.com</p>
+                        </div>
+                        <!-- Contact-info ends -->
+                    </div>
+                    <h3 class="contact-title">SEND ME AN EMAIL</h3>
+                    <h4 class="contact-item-title">I'M VERY RESPONSIVE TO MESSAGES</h4>
+                    <!-- contact form -->
+                    <div class="row">
+                        <div class="contact-form padd-15">
+                            <div class="row">
+                                <div class="form-item col-6 padd-15">
+                                     <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Name">
+                                     </div>
+                                </div>
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Subject">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <textarea name="" class="form-control" id="" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-control col-12 padd-15">
+                                    <button type="submit" class="btn">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- contact section ends -->
+        </div>
+        <!-- main-content Ends -->
+    </div>
+    <!-- main conttainer ends -->
+    <!-- Style Switcher Start -->
+    <div class="style-switcher">
+        <div class="style-switcher-toggler s-icon">
+            <i class="fas fa-cog fa-skin fa-spin"></i>
+        </div>
+        <div class="day-night s-icon">
+            <i class="fas"></i>
+        </div>
+        <h4>Theme Colors</h4>
+        <div class="colors">
+            <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+            <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+            <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+        </div>
+    </div>
+    <!-- Style Switcher Ends -->
+    <!-- Js files -->
+    <script src="/projects/Projects/scrip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.js" integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+</html>

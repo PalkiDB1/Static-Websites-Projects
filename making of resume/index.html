@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Making resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Poppins:wght@300&family=Roboto+Condensed&display=swap');
+
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 80%;
+            margin:20px auto;
+        }
+        .container .header{
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 150px;
+            background-color: rgb(31, 34, 43);
+        }
+        .container .header .logo img{
+            position: absolute;
+            top:50px;
+            left:70px;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            cursor: pointer;
+            border:5px solid white;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            transition: 0.5s;
+            user-select: none;
+            filter: grayscale(70%);
+            /* opacity: 0; */
+        }
+        .container .header .logo img:hover{
+            filter: grayscale(0%);
+            transform: scale(1.05);
+            box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5s);
+        }
+        .container .header .header-text{
+            color:white;
+            width:60%;
+            margin-left: auto;
+        }
+        .container .header .header-text h1{
+            font-size: 80px;
+            font-weight: normal;
+
+        }
+        .container .header .header-text p{
+            color:lightgray;
+            font-size: 20px;
+        }
+        .content{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .left-area{
+            width: 30%;
+            background: rgb(236, 236, 236);
+            text-decoration: none;
+            text-align: center;
+        }
+        .left-area .contact{
+            word-wrap: break-word;
+            margin-top: 130px;
+            padding: 0 30px;
+        }
+        .contact h2{
+            font-size: 35px;
+            font-weight: normal;
+            margin: 20px 0px;
+        }
+        .contact h5{
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .contact p{
+            font-size: 17px;
+        }
+
+        .right-area{
+            width: 70%;
+        }
+        .skills{
+            /* padding: 15px; */
+            margin-top: 30px;
+        }
+        .skills h1{
+            font-size: 30px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        .skills .bars{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap:20px 10px;
+            padding: 0px 20px;
+        }
+        .skills .bars p{
+            font-size: 15px;
+            font-weight: 600;
+        } 
+        .skills .bars .bar span{
+            display: block;
+            width: 100%;
+            height: 8px;
+            background: rgb(137, 133, 133);
+            border-radius: 30px;
+            position: relative;
+        }
+        .skills .bars .bar span::before{
+            position: absolute;
+            content: "";
+            width: 80%;
+            height: 100%;
+            top:0;
+            left:50%;
+            background-color: black;
+            border-radius: 40px;
+            transform: translateX(-62%);
+        }
+        .follow{
+            margin-top: 30px;
+            padding: 17px;
+            word-wrap: break-word;
+        }
+        .social{
+            margin: 20px;
+        }
+        .follow h2{
+            font-size: 30px;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        .follow h4{
+            font-weight:normal;
+            font-size: 22px;
+        }
+        .follow p a{
+            color: rgb(106, 93, 93);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .follow p a:hover{
+            color: red;
+        }
+        /* About section */
+        .right-area{
+            padding: 20px;
+            background: rgb(243, 243, 255);
+        }
+        .about{
+            width: 100%;
+            padding: 0 20px;
+        }
+        .right-area .about h1{
+            font-size: 30px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .about  h1 span{
+            margin-right: 20px;
+            font-size: 30px;
+            color: lightgray;
+        }
+        .right-area .about p{
+            margin-left: 50px;
+            font-weight: 400;
+            white-space: pre-wrap;
+            word-break: break-all;
+            text-align: justify;
+            color: gray;
+            margin-top: 10px;
+        }
+        /* work section */
+        .work{
+            padding: 0 20px;
+            width:100%;
+        }
+        .work-head{
+            display: flex;
+        }
+        .work .work-head h1 span{
+            color: lightgray;
+            margin-right: 20px;
+            font-size: 30px;
+        }
+        .work .work-head h1{
+            font-size:30px;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 6px;
+        }
+        .work-group{
+            margin-left: 48px;
+            position: relative;
+        }
+        .work-group h3{
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .work-group p{
+            margin-top: 10px;
+            font-weight: normal;
+            color: gray;
+        }
+        .work-group h4{
+            color: gray;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .work-group span{
+            position: absolute;
+            top: 0;
+            right:0;
+            color: black;
+            font-weight: 600;
+            font-size: 15px;
+            z-index: 10;
+        }
+        /* education */
+        .education{
+            margin: 0px 20px;
+        }
+        .edu-head{
+            display: flex;
+        }
+        .edu-head h1 span{
+            margin-right: 20px;
+            color: lightgray;
+        }
+        .edu-head h1{
+            font-family: 'Poppins', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            /* padding-left: 36px; */
+        }
+        .edu-group{
+            padding-left: 48px;
+        }
+        .edu-group .deg{
+            padding: 6px;
+            position: relative;
+        }
+        .edu-group .deg p{
+            color: gray;
+
+        }
+        .edu-group .deg h4{
+            font-size: 16px;
+            font-weight: 600;
+            color: black;
+            font-family: 'Poppins', sans-serif;
+        }
+        .edu-group .deg span{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            color: black;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        /* Adding responsivenes */
+        @media (max-width:1129px){
+            .container .header{
+                height:230px;
+                text-align: center;
+            }
+            .container .header .logo img{
+                display: block;
+                height:150px;
+                width: 150px;
+                top:190px;
+                left:190px;
+            }
+            .container .header .header-text{
+                width: 100%;
+                margin: auto;
+            }
+
+        }
+        @media (max-width:979px){
+            .left-area{
+                width: 100%;
+            }
+            .right-area{
+                width: 100%;
+            }
+        }
+        @media (max-width:660px){
+            .container .header .logo img{
+                height:100px;
+                width:100px;
+                top:250px;
+                left:200px;
+            
+        }
+        @media (max-width:500px){
+            .container{
+                margin: 0;
+                width: 100%;
+                padding: 0;
+            }
+            .container .header .logo img{
+                display: none;
+            }
+            .container .header{
+                height:200px;
+            }
+            .container .header .header-text{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .container .header .header-text h1{
+                font-size: 40px;
+            }
+
+            .content .left-area .contact{
+                margin-top: 10px;
+            }
+            .work .work-group span{
+                position: static;
+            }
+            .education .edu-group span{
+                position: static;
+            }
+        }
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="latestimg.PNG" alt="This is an image">
+            </div>
+            <div class="header-text">
+                <h1>Pratyush Kumar</h1>
+                <p>Full Stack Web Developer</p>
+                <p>Data Structures and algorithm Expert</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="left-area">
+                <!-- <h1>left</h1> -->
+                <div class="contact">
+                    <h2>CONTACT</h2>
+                    <h5>Phone</h5>
+                    <p>6204639486</p>
+                    <h5>Email</h5>
+                    <p>kumarpratyush20004@gmail.com</p>
+                    <h5>Home</h5>
+                    <p>Harmu,Ranchi Jharkhand</p>
+                </div>
+                <div class="skills">
+                    <h1>SKILLS</h1>
+                    <div class="bars">
+                        <div class="bar">
+                            <p>C++</p>
+                            <span></span>
+                        </div>
+                        <div class="bar">
+                            <p>Java</p>
+                            <span></span>
+                        </div>
+                        <div class="bar">
+                            <p>React</p>
+                            <span></span>
+                        </div>
+                        <div class="bar">
+                            <p>Backend</p>
+                            <span></span>
+                        </div>
+                        <div class="bar">
+                            <p>Frontend</p>
+                            <span></span>
+                        </div>
+                        <div class="bar">
+                            <p>DSA</p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="follow">
+                    <h2>Follow Me</h2>
+                    <div class="social">
+                    <h4>Instagram</h4>
+                        <p><a href="https://www.instagram.com/_c_h_i_n_t_u.__">www.instagram.com</a></p>
+                    </div>
+                    <div class="social">
+                    <h4 >FaceBook</h4>
+                        <p><a href="https://www.facebook.com/Kumar Pratyush" >www.facebook.com</a></p>
+                    </div>
+                    <div class="social">
+                    <h4 >WhatsApp</h4>
+                        <p><a href="https://web.whatsapp.com//chintu">www.whatsapp.com</a></p>
+                    </div>
+                    <div class="social">
+                    <h4>Twitter</h4>
+                        <p><a href="https://www.twitter.com/@PRATYUS88652740">www.twitter.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-area">
+                <div class="about">
+                    <h1><span><i class="far fa-user"></i></span>ABOUT ME</h1>
+                    <p>My Name is Pratyush Kumar,I am currently pursuing Bachleor of technology Degree via CMR Institute of Tecchnoly,Bangalore.Right now I am in second year(4th sem).Done my schooling from St.Thomas School, Jharkhand,Ranchi.I am an professional full stack Developer and Data Structure and Algorithm Expert.In case of full stack web Development ,I have deep knowledge in Html,CSS and JavaScript.In case of backend I am familier with Express js,node js postman with some knowledge about DBMS like MongoDb and SQL.In field of data structures and algorithm I ,have deep understanding of Linked lists,binary tress,Graphs and hash maps.
+                    </p>
+                </div>
+                <div class="work">
+                    <div class="work-head">
+                        <h1><span><i class="fas fa-suitcase-rolling"></i></span></h1>
+                        <h1>WORK EXPERINCE</h1>
+                    </div>
+                    <div class="work-group">
+                         <h3>FULL STACK DEVELOPER</h3>
+                         <h4>Certificated Course From GFG</h4>
+                         <span>2023/2024</span>
+                         <div class="para">
+                            <p>I have been certified from one of th greatest e-learning coding platform Geeks for geeks accuring 3months of vigirious training course in full stack development ,along with clearing the placement cell exam from gfg.I have several projects with this platform such as Real Time Projects such as E-commerce website,Library Mangement system.</p>
+                         </div>
+                    </div>
+                    
+                    <div class="work-group">
+                         <h3>DATA STRUCTURES AND ALGORIHTM</h3>
+                         <h4>Certificated Course From GFG</h4>
+                         <span>2023/2024</span>
+                         <div class="para">
+                            <p>Regardless of the coding background since school level,I have been learning coding from Apna college channel from YouTube via placement course in Data Structures anad Algorithm and apart from this I have been practising coding on Online competative coding platform such as geeks for geeks,LeetCode etc.I have been securing goods marks in college DSA Exams.Please consider for this Role.</p>
+                         </div>
+                    </div>
+                    
+                    <div class="work-group">
+                         <h3>DATABASE MANAGEMENT SYSTEM </h3>
+                         <h4>Certificated Course From GFG</h4>
+                         <span>2023/2024</span>
+                         <div class="para">
+                            <p>Databases are the one of the best method to store your data or information of your website or the input given from the user.Platform such as SQL and MonGo DB provide sufficient storage for your website to store ample amount of data.Having a pre-knowledge about the Data Base Management system since PUC I have been learning about DBMS since college and other Online Platforms. </p>
+                         </div>
+                    </div>
+                </div>
+                <div class="education">
+                    <div class="edu-head">
+                        <h1><span><i class="fas fa-book"></i></span></h1>
+                        <h1>EDUCATION</h1>
+                    </div>
+
+                    <div class="edu-group">
+                        <div class="deg" id="deg-1">
+                            <h4>ST.THOMAS,SCHOOL<br>
+                            DHURWA,RANCHI-JHARKHAND</h4>
+                            <p>Xth Degree,Passed with 88.02%</p>
+                            <span>2019/2020</span>
+                        </div>
+                        <div class="deg" id="deg-2">
+                            <h4>Kendriya Vidayalaya<br>
+                            Jharkhand,Ranchi</h4>
+                            <p>Passed PUC DEgree with 88%</p>
+                            <span>2022/2023</span>
+                        </div>
+                        <div class="deg" id="deg-3">
+                            <h4>CMR Institute Of Technology<br>
+                            Bangalore,Karnataka-India
+                            </h4>
+                            <p>Passing in Academic year 2024-2025</p>
+                            <span>2024/2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

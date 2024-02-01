@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode switcher</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:ital,wght@0,200;0,300;1,200&display=swap');
+
+    *{
+        margin:0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    :root{
+        --primary-color:#edf2fc;
+        --secondary-color:#212121;
+    }
+    .dark-theme{
+        --primary-color:#000000;
+        --secondary-color:#fff;
+    }
+    .blue-theme{
+        --primary-color:blue;
+        --secondary-color:#fff;
+    }
+    .container{
+        height: 100vh;
+        width: 100%;
+        background: var(--primary-color);
+        font-family: sans-serif;
+        position: relative;
+    }
+    .navbar{
+        width: 84%;
+        margin:0 auto;
+        padding: 20px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .img-logo{
+        height:100px;
+        width:100px;
+        cursor: pointer;
+    }
+    .navbar-items li{
+        display: inline-block;
+        list-style: none;
+        margin: 13px 20px;
+    }
+    .navbar-items li a{
+        text-decoration: none;
+        color:var(--secondary-color);
+
+    }
+    .navbar-items li a:hover{
+        color:red
+    }
+    .info{
+        margin-left: 8%;
+        padding-top: 13%;
+    }
+    .info-head{
+        color: var(--secondary-color);
+        font-size: 30px;
+        font-weight: 800;
+        font-family: 'Clicker Script', cursive;
+        margin-bottom: 10px;
+    }
+    .info-head span{
+        color:#ff4321;
+    }
+    .info-item p{
+        color: var(--secondary-color);
+        font-family: 'Poppins', sans-serif;
+    }
+    .info-link{
+        font-weight: bolder;
+        margin-top: 20px;
+    }
+    .info-link a{
+        display: inline-block;
+        background: var(--secondary-color);
+        text-decoration: none;
+        color: var(--primary-color);
+        border-radius: 10px;
+        padding: 16px;
+        text-transform: capitalize;
+    } 
+    .info-link a:hover{
+        /* text-shadow: 0 0 10px black; */
+        color:var(--secondary-color);
+        background-color: #fc5b3e;
+    }
+    .info-img{
+        width: 53%;
+        height: 80%;
+        position: absolute;
+        bottom: 0;
+        right: 100px;
+    }
+    .info-img img{
+        height: 90%;
+        position: absolute;
+        left:70%;
+        bottom: 70px;
+        transform: translateX(-50%);
+        transition: bottom 1s,left 1s;
+    }
+    .info-img img:nth-child(2){
+        transform: translate(-50%,-12%);
+        opacity: 1;
+    }
+    .info-img img:nth-child(1):hover{
+        bottom: 40px;
+    }
+    .info-img img:nth-child(2):hover{
+        left: 74%;
+    }
+    #icon{
+        width:30px;
+        cursor: pointer;
+    }
+    .navbar-items{
+        flex: 1;
+        text-align: right;
+    }
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="/img/pngtree-a-girl-logo-hair-png-image_6550514.png" class="img-logo" alt="This  is an image">
+                </div>
+                <div class="navbar-items">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">ABOUT</a></li>
+                        <li><a href="#">PORTFOLIO</a></li>
+                        <li><a href="#">SERVICES</a></li>
+                        <li><a href="#">HIRE ME</a></li>
+                    </ul>
+                </div>
+                <div class="dark-toggle">
+                    <img src="/img/pngwing.com.png" alt="this is an image" id="icon">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="info">
+                <div class="info-head">
+                    <h1>I'm <span>Palki </span>Devi</h1>
+                </div>
+                <div class="info-item">
+                    <p>I am a <span>Developer</span><br>
+                    I am currently pursuing my btech from CMR Institute of technology.</p>
+                </div>
+                <div class="info-link">
+                    <a href="#">Download Cv</a>
+                </div>
+                <div class="info-img">
+                    <img src="/img/Capture-paint-removebg-preview.png" alt="This is an image">
+                    <img src="/img/palki-removedbg.png" alt="This is an image">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var icon = document.getElementById("icon");
+    icon.addEventListener('click',()=>{
+        document.body.classList.toggle("dark-theme");
+        if(document.body.classList.contains("dark-theme")){
+            icon.src="/img/IMG-20230711-WA0005.jpg";
+        }else{
+            icon.src="/img/pngwing.com.png";
+        }
+    });
+</script>
+</html> 
